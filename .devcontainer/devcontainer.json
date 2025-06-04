@@ -1,0 +1,31 @@
+{
+	"name": "keybind-display",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// https://www.jetbrains.com/idea/download/other.html#
+			"IDEA_VERSION": "2025.1.2",
+			// https://download.jetbrains.com/idea/ideaIC-2025.1.2.tar.gz.sha256
+			"IDEA_CHECKSUM": "70dc870bd31fda67de30d3a132cfed543d5e67c15c7db52f6f4c4691a044930a",
+			"JAVA_VERSION": "temurin-11-jdk"
+		}
+	},
+	"mounts": [
+		"source=${localWorkspaceFolderBasename}-home,target=/home,type=volume"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-containers",
+				"GitHub.vscode-github-actions",
+				"vscjava.vscode-java-pack"
+			],
+			"settings": {
+				"extensions.ignoreRecommendations": true
+			}
+		}
+	},
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh --basename ${localWorkspaceFolderBasename}",
+	"postStartCommand": "bash .devcontainer/postStartCommand.sh",
+	"remoteUser": "vscode"
+}

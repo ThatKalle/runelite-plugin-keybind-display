@@ -1,11 +1,11 @@
-package com.example;
+package com.keybinddisplay;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("example")
-public interface ExampleConfig extends Config
+@ConfigGroup("keybinddisplay")
+public interface KeybindDisplayConfig extends Config
 {
 	@ConfigItem(
 		keyName = "greeting",
@@ -14,6 +14,6 @@ public interface ExampleConfig extends Config
 	)
 	default String greeting()
 	{
-		return "Hello";
+		return "Test";
 	}
 }
