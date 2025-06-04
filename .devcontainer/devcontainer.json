@@ -21,7 +21,8 @@
 				"vscjava.vscode-java-pack"
 			],
 			"settings": {
-				"extensions.ignoreRecommendations": true
+				"extensions.ignoreRecommendations": true,
+				"java.compile.nullAnalysis.mode": "disabled"
 			}
 		}
 	},

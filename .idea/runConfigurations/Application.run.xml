@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Application" type="Application" factoryName="Application" singleton="false">
     <option name="MAIN_CLASS_NAME" value="com.keybinddisplay.KeybindDisplayPluginTest" />
-    <module name="example.test" />
+    <module name="Keybind_Display.test" />
     <option name="PROGRAM_PARAMETERS" value="--developer-mode --debug" />
     <option name="VM_PARAMETERS" value="-ea" />
     <method v="2">

@@ -11,6 +11,7 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.overlay.OverlayManager;
 
 @Slf4j
 @PluginDescriptor(
@@ -24,25 +25,24 @@ public class KeybindDisplayPlugin extends Plugin
 	@Inject
 	private KeybindDisplayConfig config;
 
+	@Inject
+	private OverlayManager overlayManager;
+
+	@Inject
+	private KeybindDisplayOverlay overlay;
+
 	@Override
 	protected void startUp() throws Exception
 	{
 		log.info("Keybind Display started!");
+		overlayManager.add(overlay);
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
 		log.info("Keybind Display stopped!");
-	}
-
-	@Subscribe
-	public void onGameStateChanged(GameStateChanged gameStateChanged)
-	{
-		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
-		{
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
-		}
+		overlayManager.remove(overlay);
 	}
 
 	@Provides

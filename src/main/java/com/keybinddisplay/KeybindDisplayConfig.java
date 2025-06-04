@@ -4,16 +4,43 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("keybinddisplay")
-public interface KeybindDisplayConfig extends Config
-{
+import java.awt.*;
+
+@ConfigGroup("keyvinddisplay")
+public interface KeybindDisplayConfig extends Config {
 	@ConfigItem(
-		keyName = "greeting",
-		name = "Welcome Greeting",
-		description = "The message to show to the user when they login"
+			keyName = "xOffset",
+			name = "X Offset",
+			description = "X offset for keybind label"
 	)
-	default String greeting()
-	{
-		return "Test";
+	default int xOffset() {
+		return 5;
+	}
+
+	@ConfigItem(
+			keyName = "yOffset",
+			name = "Y Offset",
+			description = "Y offset for keybind label"
+	)
+	default int yOffset() {
+		return 5;
+	}
+
+	@ConfigItem(
+			keyName = "fontSize",
+			name = "Font Size",
+			description = "Font size for the keybind text"
+	)
+	default int fontSize() {
+		return 16;
+	}
+
+	@ConfigItem(
+			keyName = "textColor",
+			name = "Text Color",
+			description = "Color of the keybind text"
+	)
+	default Color textColor() {
+		return Color.WHITE;
 	}
 }
